@@ -1,0 +1,185 @@
+@media print {
+    /* ========================================================== */
+    /* GLOBAL PRINT RESET (MUST be at the top to clear Bootstrap) */
+    /* ========================================================== */
+    * {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: content-box !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        color: #000 !important;
+        float: none !important; /* Important for clearing Bootstrap column floats */
+    }
+    
+    /* Force Bootstrap layout containers to be ignored */
+    .container, .container-fluid, .row, [class*="col-"] {
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        display: block !important;
+        flex: 0 0 auto !important;
+    }
+    
+    /* 1. PAPER/PAGE SETUP */
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+    
+    /* Apply Font/Body styles with power */
+    body {
+        font-family: Arial, sans-serif !important; /* Force Font Change */
+        font-size: 10pt !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #000 !important;
+    }
+    
+    /* 2. HIDE UNNECESSARY SCREEN ELEMENTS */
+    .no-print, .print-button {
+        display: none !important;
+    }
+
+    /* 3. LAYOUT & STRUCTURE */
+    body .invoice-wrapper {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Header Spacing */
+    body .header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-bottom: 2px solid #333 !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 10px !important;
+    }
+    body .logo-box h2 {
+        font-size: 16pt !important;
+        margin: 0 !important;
+    }
+    body .company-info {
+        text-align: right !important;
+         font-size: 9pt  !important;
+        font-style: normal !important;
+    }
+    body .invoice-title {
+        text-align: center !important;
+        font-size: 14pt    !important;
+        margin: 10px 0 !important;
+    }
+    
+    /* DETAILS SECTION - CONSOLIDATED & CORRECTED */
+    body .details-section {
+        display: flex !important;
+        justify-content: space-between !important;
+        border: 1px solid #ccc !important;
+        padding: 5px !important;
+        margin-bottom: 15px !important;
+    }
+
+    body .address-box, body .invoice-info {
+        width: 30% !important; /* Correctly sets 3-column layout */
+        padding: 5px !important;
+    }
+    body .details-section h3 {
+        margin: 0 0 5px 0 !important;
+         font-size: 10pt  !important;
+        font-weight: bold  !important;
+        border-bottom: 1px dashed #ccc !important;
+    }
+    
+    /* 4. ITEM TABLE */
+    body .item-table {
+        width: 100% !important;
+        border-collapse: collapse !important; 
+        margin-bottom: 15px !important; 
+        border: 1px solid #000 !important; /* Outer border */
+    }
+    body .item-table th, body .item-table td {
+       display: table-cell !important;  /*Fixes horizontal header/cell issue */
+        border: 1px solid #000 !important; 
+        padding: 5px 8px !important;
+        text-align: left !important;
+    }
+    body .item-table th {
+        background-color: #f0f0f0 !important; 
+        font-weight: bold !important;
+    }
+    body .item-table tbody tr td:nth-child(7), 
+    body .item-table tbody tr td:nth-child(8) {
+        border-right: none !important;
+    }
+
+    /* Column widths and text alignment */
+    body .col-sno { width: 5% !important; }
+    body .col-hsn { width: 10% !important; }
+    body .col-qty, body .col-unit { width: 8% !important; }
+    body .col-price, body .col-amount { width: 12% !important; text-align: right !important; }
+    body .col-gst-amount { width: 10% !important; } 
+    body .col-linetotal { width: 12% !important; } 
+    body .col-item { width: 20% !important; } 
+    body .text-right { text-align: right !important; }
+
+       /* Page Break Control */
+    body .invoice-item-row {
+        page-break-inside: auto !important;
+    }
+    body .item-table {
+        page-break-inside: auto !important;
+    }
+    
+    /* 5. SUMMARY & TOTALS */
+    body .summary-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+    }
+    body .summary-totals {
+        width: 35% !important;
+        border: 1px solid #000 !important;
+        margin-bottom: 10px !important;
+    }
+    body .total-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+    }
+    body .total-table td {
+        padding: 4px 8px !important;
+    }
+    body .grand-total-row td {
+        font-weight: bold !important;
+        background-color: #eee !important;
+        border-top: 1px solid #000 !important;
+        font-size: 11pt;
+    }
+    body .amount-in-words {
+         font-weight: bold !important;
+        margin-bottom: 20px !important;
+        align-self: flex-start !important;
+    }
+
+    /* 6. FOOTER */
+    body footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+        margin-top: 30px !important;
+    }
+    body .terms-bank {
+        width: 65% !important;
+        /* padding: 0 !important; */
+        /* margin: 0 !important; */
+        font-size:8pt !important;
+    }
+    body .signature {
+        width: auto !important; /* Use auto/min-content for compact signature */
+        text-align: center !important;
+        border-top: 1px solid #000 !important;
+        padding-top: 5px !important;
+         font-size: 9pt !important;
+    } 
+}
